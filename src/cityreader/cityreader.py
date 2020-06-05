@@ -2,17 +2,18 @@
 # fields for name, lat and lon (representing latitude and longitude).
 
 import csv
+from typing import List
 
 
-class City():
+class City:
     def __init_(self, name, lat, lon):
         self.name = name
         self.lat = lat
         self.lon = lon
 
 
-def __str__(self):
-    return f"{self.name} ({self.lat}, {self.lon})"
+# def __str__(self):
+#     return f"{self.name} ({self.lat}, {self.lon})"
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -29,13 +30,19 @@ def __str__(self):
 # should not be loaded into a City object.
 cities = []
 
+# TODO Implement the functionality to read from the 'cities.csv' file
+# For each city record, create a new City instance and add it to the
+# `cities` list
 
-def cityreader(cities=[]):
-    # TODO Implement the functionality to read from the 'cities.csv' file
-    # For each city record, create a new City instance and add it to the
-    # `cities` list
 
-    return cities
+def cityreader(cities=[]) -> List[City]:
+
+    with open('cities.csv', mode='r', newline='') as cities_file:
+        reader = csv.reader(cities_file)
+        next(reader)
+        for row in reader:
+            print("City:" + row[0],  + float(row[3]),  + float(row[4]))
+        return cities
 
 
 cityreader(cities)
