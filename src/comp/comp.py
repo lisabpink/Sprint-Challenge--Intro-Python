@@ -34,7 +34,7 @@ print(a)
 # 2 Write a list comprehension that creates a list of names of everyone
 # whose name ends in "e".
 print("Ends with e:")
-b = [human.name for human in humans if human.name[-1] == "e"]
+b = [human.name for human in humans if human.name.endswith("e")]
 print(b)
 
 # 3 Write a list comprehension that creates a list of names of everyone
@@ -67,10 +67,10 @@ print(f)
 # list, except with all the names uppercase and the ages with 5 added to them.
 # The "humans" list should be unmodified.
 print("All names uppercase:")
-g = []
+g = [Human(human.name.upper(), human.age + 5) for human in humans]
 print(g)
 
 # 8 Write a list comprehension that contains the square root of all the ages.
 print("Square root of ages:")
-h = []
+h = [human.age ** 0.5 for human in humans]
 print(h)
