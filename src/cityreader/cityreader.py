@@ -6,14 +6,14 @@ from typing import List
 
 
 class City:
-    def __init_(self, name, lat, lon):
+    def __init_(self, name: str,  lat: float, lon: float):
         self.name = name
         self.lat = lat
         self.lon = lon
 
 
 # def __str__(self):
-#     return f"{self.name} ({self.lat}, {self.lon})"
+#     return f'city:{self.name}, lat:{self.lat} ,long:{self.lon}'
 
 
 # We have a collection of US cities with population over 750,000 stored in the
@@ -41,7 +41,7 @@ def cityreader(cities=[]) -> List[City]:
         reader = csv.reader(cities_file)
         next(reader)
         for row in reader:
-            print("City:" + row[0],  + float(row[3]),  + float(row[4]))
+            print(row[0],  + float(row[3]),  + float(row[4]))
         return cities
 
 
@@ -49,7 +49,7 @@ cityreader(cities)
 
 # Print the list of cities (name, lat, lon), 1 record per line.
 for c in cities:
-    print(c)
+    print(f"Name: {c.name} Lat: {c.lat}, Lon: {c.lon}")
 
 # STRETCH GOAL!
 #
